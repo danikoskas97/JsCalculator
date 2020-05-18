@@ -11,58 +11,51 @@
     <title>Dani Calculator</title>
 </head>
 <body>
-    
-
-        
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input type="text" id="res" value="" placeholder="0" />
-                        </div>
-                    </div>
-                        <div class="row">
-                            <div class="col">
-                                <input type="button" id="i0" value="0" onclick="func(value)" />
-                                <input type="button" id="i1" value="1" onclick="func(value)" />
-                                <input type="button" id="i2" value="2" onclick="func(value)" />
-                                <input type="button" id="i3" value="3" onclick="func(value)" />
-                                <input type="button" id="i4" value="4" onclick="func(value)" />
-                            </div>
-                            </div>
-                                <div class="row mt-3">
-                                    <div class="col">
-                                        <input type="button" id="i5" value="5" onclick="func(value)" />
-                                        <input type="button" id="i6" value="6" onclick="func(value)" />
-                                        <input type="button" id="i7" value="7" onclick="func(value)" />
-                                        <input type="button" id="i8" value="8" onclick="func(value)" />
-                                        <input type="button" id="i9" value="9" onclick="func(value)" />
-                                    </div>
-                                </div>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <button id="b1" onclick="func(value)" value="+">+</button>
-                                <button id="b1" onclick="func(value)" value="-">-</button>
-                                <button id="b1" onclick="func(value)" value="x">x</button>
-                                <button id="b1" onclick="func(value)" value="/">/</button>
-                                <button id="b1" onclick="func(value)" value="=">=</button>
-                            </div>
-                        </div>
-                            <div class="row">
-                                <div class="col pr-5">
-                                    <button id="b1" onclick="func(value)" type="button" value="C">Clear</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col">
+                    <input type="text" id="res" value="" placeholder="0" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="button" id="i0" value="0" onclick="func(value)" />
+                    <input type="button" id="i1" value="1" onclick="func(value)" />
+                    <input type="button" id="i2" value="2" onclick="func(value)" />
+                    <input type="button" id="i3" value="3" onclick="func(value)" />
+                    <input type="button" id="i4" value="4" onclick="func(value)" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <input type="button" id="i5" value="5" onclick="func(value)" />
+                    <input type="button" id="i6" value="6" onclick="func(value)" />
+                    <input type="button" id="i7" value="7" onclick="func(value)" />
+                    <input type="button" id="i8" value="8" onclick="func(value)" />
+                    <input type="button" id="i9" value="9" onclick="func(value)" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <button id="b1" onclick="func(value)" value="+">+</button>
+                    <button id="b1" onclick="func(value)" value="-">-</button>
+                    <button id="b1" onclick="func(value)" value="x">x</button>
+                    <button id="b1" onclick="func(value)" value="/">/</button>
+                    <button id="b1" onclick="func(value)" value="=">=</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col pr-5">
+                    <button id="b1" onclick="func(value)" type="button" value="C">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
 
         var num1 = "0", num2 = "0", res = 0, operator = "";
-        function func(x) {
+        const func = (x) => {
             i = document.getElementById("res");
             i.value += x;
 
@@ -70,14 +63,13 @@
                 operator = x
            }
            console.log(operator)
-
             if (i.value.includes('/') || i.value.includes('+') || i.value.includes('-') || i.value.includes('x') || i.value.includes('.')) {
                 if(x != "/" && x != "+" && x != "x" && x != "-" && x != "." && x != '=' && x != 'C')
                 num2 += x
             }
             else if(x != "/" && x != "+" && x != "x" && x != "-" && x != "." && x != '=' && x != 'C')
                 num1 += x
-            
+
             console.log(`num1: ${num1} opetrator: ${operator} num2: ${num2}`)
 
             if(operator == 'C'){
@@ -105,12 +97,9 @@
                     case "=":
                     i.value = res
                     break
-                    
                 }
             }            
         }
-        
-
     </script>
   </body>
 </html>
