@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Dani Calculator</title>
+</head>
+<body>
+    
+
+        
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="text" id="res" value="" placeholder="0" />
+                        </div>
+                    </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="button" id="i0" value="0" onclick="func(value)" />
+                                <input type="button" id="i1" value="1" onclick="func(value)" />
+                                <input type="button" id="i2" value="2" onclick="func(value)" />
+                                <input type="button" id="i3" value="3" onclick="func(value)" />
+                                <input type="button" id="i4" value="4" onclick="func(value)" />
+                            </div>
+                            </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <input type="button" id="i5" value="5" onclick="func(value)" />
+                                        <input type="button" id="i6" value="6" onclick="func(value)" />
+                                        <input type="button" id="i7" value="7" onclick="func(value)" />
+                                        <input type="button" id="i8" value="8" onclick="func(value)" />
+                                        <input type="button" id="i9" value="9" onclick="func(value)" />
+                                    </div>
+                                </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <button id="b1" onclick="func(value)" value="+">+</button>
+                                <button id="b1" onclick="func(value)" value="-">-</button>
+                                <button id="b1" onclick="func(value)" value="x">x</button>
+                                <button id="b1" onclick="func(value)" value="/">/</button>
+                                <button id="b1" onclick="func(value)" value="=">=</button>
+                            </div>
+                        </div>
+                            <div class="row">
+                                <div class="col pr-5">
+                                    <button id="b1" onclick="func(value)" type="button" value="C">Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+    <script>
+
+        var num1 = "0", num2 = "0", res = 0, operator = "";
+        function func(x) {
+            i = document.getElementById("res");
+            i.value += x;
+
+            if(x == "/" || x == "+" || x == "x" || x == "-" || x == "." || x == '=' || x == 'C'){
+                operator = x
+           }
+           console.log(operator)
+
+            if (i.value.includes('/') || i.value.includes('+') || i.value.includes('-') || i.value.includes('x') || i.value.includes('.')) {
+                if(x != "/" && x != "+" && x != "x" && x != "-" && x != "." && x != '=' && x != 'C')
+                num2 += x
+            }
+            else if(x != "/" && x != "+" && x != "x" && x != "-" && x != "." && x != '=' && x != 'C')
+                num1 += x
+            
+            console.log(`num1: ${num1} opetrator: ${operator} num2: ${num2}`)
+
+            if(operator == 'C'){
+                num1 = 0
+                num2 = 0
+                res = 0
+                operator = ""
+                i.value = ""
+            } 
+            if(num1 != "0" && num2 != "0"){
+                switch (operator) {
+                    case "+":
+                    res = Number(num1) + Number(num2);
+                    console.log(`num 1 : ${num1} num2: ${num2} `)
+                    break;
+                    case "-":
+                    res = num1 - num2;
+                    break;
+                    case "x":
+                    res = num1*num2;
+                    break;
+                    case "/":
+                    res = num1/num2;
+                    break;
+                    case "=":
+                    i.value = res
+                    break
+                    
+                }
+            }            
+        }
+        
+
+    </script>
+  </body>
+</html>
