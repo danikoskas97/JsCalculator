@@ -11,49 +11,51 @@
     <title>Dani Calculator</title>
 </head>
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+    <div class="container">
             <div class="row mb-3">
                 <div class="col">
-                    <input type="text" id="res" value="" placeholder="0" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="button" id="i0" value="0" onclick="func(value)" />
-                    <input type="button" id="i1" value="1" onclick="func(value)" />
-                    <input type="button" id="i2" value="2" onclick="func(value)" />
-                    <input type="button" id="i3" value="3" onclick="func(value)" />
-                    <input type="button" id="i4" value="4" onclick="func(value)" />
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <input type="button" id="i5" value="5" onclick="func(value)" />
-                    <input type="button" id="i6" value="6" onclick="func(value)" />
-                    <input type="button" id="i7" value="7" onclick="func(value)" />
-                    <input type="button" id="i8" value="8" onclick="func(value)" />
-                    <input type="button" id="i9" value="9" onclick="func(value)" />
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <button id="b1" onclick="func(value)" value="+">+</button>
-                    <button id="b1" onclick="func(value)" value="-">-</button>
-                    <button id="b1" onclick="func(value)" value="x">x</button>
-                    <button id="b1" onclick="func(value)" value="/">/</button>
-                    <button id="b1" onclick="func(value)" value="=">=</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col pr-5">
-                    <button id="b1" onclick="func(value)" type="button" value="C">Clear</button>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-secondary"id="b1" class="btn btn-outline-primary" onclick="func(value)" value="=">=</button>
+                    </div>
+                    <input type="text" id="res" value=""  placeholder="0" aria-label="" aria-describedby="basic-addon1">
                 </div>
             </div>
         </div>
+            <div class="row">
+                <div class="col">
+                    <input type="button" class="btn btn-outline-primary" id="i0" value="0" onclick="func(value)" />
+                    <input type="button" class="btn btn-outline-primary" id="i1" value="1" onclick="func(value)" />
+                    <input type="button" class="btn btn-outline-primary" id="i2" value="2" onclick="func(value)" />
+                    <input type="button" class="btn btn-outline-primary" id="i3" value="3" onclick="func(value)" />
+                    <input type="button" class="btn btn-outline-primary" id="i4" value="4" onclick="func(value)" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <input type="button" class="btn btn-outline-primary" id="i5" value="5" onclick="func(value)" />
+                    <input type="button" class="btn btn-outline-primary" id="i6" value="6" onclick="func(value)" />
+                    <input type="button" class="btn btn-outline-primary" id="i7" value="7" onclick="func(value)" />
+                    <input type="button" class="btn btn-outline-primary" id="i8" value="8" onclick="func(value)" />
+                    <input type="button" class="btn btn-outline-primary" id="i9" value="9" onclick="func(value)" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <button id="b1" class="btn btn-outline-primary" onclick="func(value)" value="+">+</button>
+                    <button id="b1" class="btn btn-outline-primary" onclick="func(value)" value="-">-</button>
+                    <button id="b1" class="btn btn-outline-primary" onclick="func(value)" value="x">x</button>
+                    <button id="b1" class="btn btn-outline-primary" onclick="func(value)" value="/">/</button>
+                    <button id="b1" class="btn btn-outline-primary" onclick="func(value)" value="=">=</button>
+                </div>
+            </div>
+            <div class="row ml-3" id="clear">
+                <div class="col" id="clearButton">
+                    <button id="b1" onclick="func(value)" class="btn btn-outline-danger" type="button" value="C">Clear</button>
+                </div>
+            </div>
     </div>
     <script>
-
         var num1 = "0", num2 = "0", res = 0, operator = "";
         const func = (x) => {
             i = document.getElementById("res");
@@ -86,13 +88,13 @@
                     console.log(`num 1 : ${num1} num2: ${num2} `)
                     break;
                     case "-":
-                    res = num1 - num2;
+                    res = Number(num1) - Number(num2);
                     break;
                     case "x":
-                    res = num1*num2;
+                    res = Number(num1) * Number(num2);
                     break;
                     case "/":
-                    res = num1/num2;
+                    res = Number(num1) / Number(num2);
                     break;
                     case "=":
                     i.value = res
@@ -101,5 +103,23 @@
             }            
         }
     </script>
+    <style>
+        
+        #clear{
+            margin-top: 15px;
+        }
+        .container{
+            margin-top: 150px;
+            margin-left: 400px;
+        }
+        #res{
+            margin-left: 5px;
+        }
+        #clearButton{
+            margin-left: 48px;
+        }
+        
+
+    </style>
   </body>
 </html>
